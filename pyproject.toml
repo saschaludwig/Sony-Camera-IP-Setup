@@ -31,6 +31,11 @@ classifiers = [
 ]
 dependencies = []
 
+[project.urls]
+Homepage = "https://github.com/saschaludwig/Sony-Camera-IP-Setup"
+Repository = "https://github.com/saschaludwig/Sony-Camera-IP-Setup"
+Issues = "https://github.com/saschaludwig/Sony-Camera-IP-Setup/issues"
+
 [project.scripts]
 sony-camera-ip-setup = "sony_camera_ip_setup:main"
 

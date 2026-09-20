@@ -104,6 +104,32 @@ source .venv/bin/activate
 PYTHONPATH=src python3 -m unittest discover -s tests
 ```
 
+## Publishing to PyPI
+
+Releases are published by GitHub Actions when you create a GitHub Release.
+No PyPI token is stored in the repository. Authentication uses
+[Trusted Publishing](https://docs.pypi.org/trusted-publishers/).
+
+One-time setup on [pypi.org](https://pypi.org/manage/account/publishing/):
+
+1. Add a pending trusted publisher (the project does not have to exist yet).
+2. PyPI project name: `sony-camera-ip-setup`
+3. Owner: `saschaludwig`
+4. Repository: `Sony-Camera-IP-Setup`
+5. Workflow: `publish.yml`
+6. Environment: `pypi`
+
+In the GitHub repo, create an environment named `pypi` (Settings → Environments).
+Optional but recommended: restrict it to the `main` branch.
+
+To publish a new version:
+
+1. Bump `version` in `pyproject.toml` and `__version__` in
+   `src/sony_camera_ip_setup/__init__.py`.
+2. Commit and push to `main`.
+3. Create a GitHub Release (for example tag `v1.0.1`).
+4. The **Publish** workflow runs tests, builds the package, and uploads it to PyPI.
+
 ## License
 
 [MIT](LICENSE)
